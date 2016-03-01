@@ -30,7 +30,7 @@ public class Bank
 	}//end main
 	
 	
-	/**
+	/***************************************************************************************************
 	 * A method to deposit to the account
 	 * Can only be accessed from the main menu
 	 * 
@@ -149,7 +149,7 @@ public class Bank
 		}
 	}//end main Menu
 
-	/**
+	/*****************************************************************************************************
 	 * A method to print out the date from a long data type
 	 * 
 	 * adapted from http://stackoverflow.com/questions/4772425/change-date-format-in-a-java-string
@@ -179,7 +179,7 @@ public class Bank
 	}
 
 	
-	/**********************************************************************************************
+	/****************************************************************************************************
 	 * A method to provide the "Tools Menu" functionality
 	 * Can only be acessed by the main menu
 	 * 
@@ -213,7 +213,7 @@ public class Bank
 	}//end tools
 
 
-	/**********************************************************************************
+	/***********************************************************************************************************
 	 * A method to validate a choice that was made
 	 * in the menu
 	 * 
@@ -253,7 +253,7 @@ public class Bank
 	}//end validChoice
 
 	
-	/************************************************************************************************
+	/******************************************************************************************************
 	 * A method to provide the withdraw functionality
 	 * Can only be accessed from the main menu
 	 * 
