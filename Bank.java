@@ -7,7 +7,7 @@ import java.util.Date;
 /** 
  * @author Micah Smith, 
  * @version 1.0.0: Date 2/25/16
- * The program is written for CIS 331 @JMU
+ * The program is written for CIS 331 at JMU
  * It is the first iteration of the Bank Group Assignemnt 
  */
 public class Bank
@@ -70,6 +70,8 @@ public class Bank
 	
 	/*****************************************************************************************************
 	 * A method to get the current date
+	 * 
+	 * Taken from JavaDocs on System
 	 * 
 	 */
 	public static long getDate()
@@ -147,7 +149,14 @@ public class Bank
 		}
 	}//end main Menu
 
-	
+	/**
+	 * A method to print out the date from a long data type
+	 * 
+	 * adapted from http://stackoverflow.com/questions/4772425/change-date-format-in-a-java-string
+	 * 
+	 * @params int counter the master counter iterating through an array
+	 * @params date - long data type from getDate()
+	 */
 	public static String printDate(int i, long[] date) 
 	{
 		Date instanceDate = new Date(date[i]);
@@ -263,7 +272,7 @@ public class Bank
 		System.out.print("Enter Amount: ");
 		amount[arrayCount] = scan.nextDouble();
 
-		//date needs to be done date[arrayCount] = ______
+		date[arrayCount] = getDate();
 		return ++arrayCount;
 	}//end withdraw
 }//end Bank Class
