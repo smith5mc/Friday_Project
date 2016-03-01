@@ -1,3 +1,3 @@
-# Friday_Project
+# Semester Project
 
-First GiHub Project Will be based around the Friday Project
+This project is the first semester project for CIS 331
