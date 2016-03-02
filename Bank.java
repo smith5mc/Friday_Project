@@ -5,10 +5,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /** 
- * @author Micah Smith, 
- * @version 1.0.0: Date 2/25/16
+ * @author  Nguyen,Van Duc 
+ *          Nguyen,Patrick Quang 
+ *          Smith,Micah Copeland 
+ *          Pena Trujillo,Julian
+ * 
+ * Date Created 2/25/16
+ * 
+ * @version 1.0(2/25/2016)
+ * @version 1.1(3/1/2016)
+ * 
+ * Hosted on https://github.com/smith5mc/Semester-Project
+ * 
  * The program is written for CIS 331 at JMU
  * It is the first iteration of the Bank Group Assignment 
+ * 
+ * NOTES: This prototype as of version 1.1 can only handle 
+ * 50 transactions 
  */
 public class Bank
 {
@@ -17,22 +30,22 @@ public class Bank
         int arrayCount = 0;
         
         Scanner scan = new Scanner(System.in);
-        String last =  "";
-        String first = "";
-        String mi = "";
+        String lastName =  "";
+        String firstName = "";
+        String middleInitial = "";
 
         System.out.print("Welcome to First Shenandoah Bank!"
                          + "\nEnter New Customer Name(Lastname,"
                          + " Firstname MI):");
-        last = scan.next();
-        first = scan.next();
-        mi = scan.next();
+        lastName = scan.next();
+        firstName = scan.next();
+        middleInitial = scan.next();
 
         mainMenu(arrayCount);
     }//end main
 
 
-    /***********************************************************************
+    /***************************************************************************
      * A method to deposit to the account
      * Can only be accessed from the main menu
      * 
@@ -58,7 +71,7 @@ public class Bank
     }//end deposit
 
 
-    /***********************************************************************
+    /***************************************************************************
      * A method to get the current account balance
      * Can only be accessed from the main menu
      * 
@@ -73,7 +86,7 @@ public class Bank
         return("Your Current Balance Is: $" + total + "\n");		
     }//end get current
 
-    /***********************************************************************
+    /***************************************************************************
      * A method to get the current date
      * 
      * Taken from JavaDocs on System
@@ -88,7 +101,7 @@ public class Bank
     }
 
 
-    /***********************************************************************
+    /***************************************************************************
      * A method to generate a report of transactions
      * Can only be accessed from the main menu
      * 
@@ -118,7 +131,7 @@ public class Bank
     }//end getReport
 
 
-    /***********************************************************************
+    /***************************************************************************
      * A method to provide the "Main Menu" functionality
      * Gets and directs user choice to methods to handle 
      * their respective functionality
@@ -129,9 +142,9 @@ public class Bank
     {
         boolean quit = false;
         int choice = -1;
-        String[] description = new String[15];
-        double[] amount = new double[15];
-        long[] date = new long[15];
+        String[] description = new String[50];
+        double[] amount = new double[50];
+        long[] date = new long[50];
 
         do
         {
@@ -175,7 +188,7 @@ public class Bank
     public static String printDate(int i, long[] date) 
     {
         Date instanceDate = new Date(date[i]);
-        SimpleDateFormat current = new SimpleDateFormat("EEE, d MMM yyyy"
+        SimpleDateFormat current = new SimpleDateFormat("EEE, d MMM yyyy "
                                                         + "HH:mm:ss"); 
         String dateFormated = current.format(instanceDate);
         return dateFormated;
