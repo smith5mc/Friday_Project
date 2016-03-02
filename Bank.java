@@ -83,9 +83,10 @@ public class Bank
         int total = 0;
         for(double e: amount)
             total += e;
-        return("Your Current Balance Is: $" + total + "\n");		
+        return("Your Current Balance Is: $" + total);		
     }//end get current
 
+    
     /***************************************************************************
      * A method to get the current date
      * 
@@ -114,20 +115,20 @@ public class Bank
                                 long[] date, int arrayCount)
     {
         System.out.println("\nTransaction Report:\nDate:\t\t\t" +
-                            "Amount:\tDescription:");
+                            "Amount:\t\tDescription:");
         System.out.println("____________________________________" +
-                            "_________________");
+                           "_________________");
 
         for (int i = 0; i < arrayCount; i++)
         {
-                System.out.println(printDate(i, date) + "\t" + 
+                System.out.println(printDate(i, date) + "\t\t$ " + 
                                     amount[i] + "\t" + description[i]);			
         }
         System.out.println("\n_____________________________________" +
-                            "________________");
-        System.out.println(getCurrent(amount));
-        System.out.println("\n______________________________________" +
-                            "_______________");
+                           "________________");
+        System.out.print(getCurrent(amount));
+        System.out.print("\n______________________________________" +
+                           "_______________");
     }//end getReport
 
 
@@ -175,6 +176,7 @@ public class Bank
         }while(!quit);
     }//end main Menu
 
+    
     /***************************************************************************
      * A method to print out the date from a long data type
      * 
@@ -188,8 +190,7 @@ public class Bank
     public static String printDate(int i, long[] date) 
     {
         Date instanceDate = new Date(date[i]);
-        SimpleDateFormat current = new SimpleDateFormat("EEE, d MMM yyyy "
-                                                        + "HH:mm:ss"); 
+        SimpleDateFormat current= new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a"); 
         String dateFormated = current.format(instanceDate);
         return dateFormated;
     }
@@ -235,8 +236,8 @@ public class Bank
                 break;
             case 2: getReport(description, amount, date, arrayCount); 
                 break;
-            case 3: mainMenu(arrayCount); 
-                break;
+            case 3: break; // otherwise mainMenu() is called 2x resulting in 
+                           // double quit
             default: System.out.println("Error in validChoice"); 
                 break;
             }
@@ -293,18 +294,21 @@ public class Bank
      * @param amount : amount of the transaction
      * @param date : date of the transaction
      * @param arrayCount : current counter of the array
-     * @return arrayCount : Preincrimented by 1
+     * @return arrayCount : Pre-incrimented by 1
      */
     public static int withdraw(String[] description, double[] amount, 
                                 long[] date, int arrayCount)
     {
+        double tempAmount = 0;
+        
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Enter Withdrawal Description: ");
         description[arrayCount] = scan.nextLine();
 
         System.out.print("Enter Amount: ");
-        amount[arrayCount] = scan.nextDouble();
+        tempAmount = scan.nextDouble();
+        amount[arrayCount] = (0 - tempAmount); //to make withdrawel negative 
 
         date[arrayCount] = getDate();
         return ++arrayCount;
