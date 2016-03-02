@@ -58,13 +58,22 @@ public class Bank
     public static int deposit(String[] description, double[] amount, 
                                long[] date, int arrayCount)
     {
+        double temp = 0;
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Enter Deposit Description: ");
         description[arrayCount] = scan.nextLine();
 
-        System.out.print("Enter Amount: ");
-        amount[arrayCount] = scan.nextDouble();
+        System.out.print("Enter Amount (Must be Positive): ");
+        do
+        {
+            temp = scan.nextDouble();
+            if (temp < 0)
+            {
+                System.out.print("Please enter positive value, Renter Amount: ");
+            }
+        }while (temp < 0 );
+        amount[arrayCount] = temp;
 
          date[arrayCount] = getDate();
         return ++arrayCount;
@@ -308,8 +317,15 @@ public class Bank
 
         System.out.print("Enter Amount: ");
         tempAmount = scan.nextDouble();
-        amount[arrayCount] = (0 - tempAmount); //to make withdrawel negative 
-
+        if (tempAmount < 0)
+        {
+            amount[arrayCount] = tempAmount;
+        }
+        else
+        {
+            amount[arrayCount] = (0 - tempAmount); //to make withdrawel negative 
+        }
+        
         date[arrayCount] = getDate();
         return ++arrayCount;
     }//end withdraw
